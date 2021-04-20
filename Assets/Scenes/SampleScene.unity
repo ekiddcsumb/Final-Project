@@ -946,14 +946,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1723181723}
-  speed: 2
+  speed: 1.5
   gravity: -11
   groundDistance: 0.4
   jumpHeight: 2
+  sprintSpeed: 2
   groundCheck: {fileID: 1872130070}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  isSprinting: 0
 --- !u!1 &1752327556
 GameObject:
   m_ObjectHideFlags: 0

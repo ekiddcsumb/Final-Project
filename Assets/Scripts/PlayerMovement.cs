@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float groundDistance = 0.4f;
     public float jumpHeight;
+    public float sprintSpeed;
     
     private Vector3 velocity;
     
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     
     private bool isGrounded;
+    public bool isSprinting = false;
     
     void Update()
     {
@@ -32,11 +34,25 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-        
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isSprinting = true;
+        }
+        else
+        {
+            isSprinting = false;
+        }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
+        
+        if (isSprinting)
+        {
+            move *= sprintSpeed;
+        }
 
         controller.Move(move * speed * Time.deltaTime);
 
