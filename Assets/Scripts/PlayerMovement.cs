@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,23 @@ public class PlayerMovement : MonoBehaviour
     
     private bool isGrounded;
     public bool isSprinting = false;
-    
+
+    private AudioSource _audioSource;
+    public AudioClip meow01;
+    public AudioClip meow02;
+    public AudioClip meow03;
+    public AudioClip meow04;
+    private List<AudioClip> sounds;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        sounds.Add(meow01);
+        sounds.Add(meow02);
+        sounds.Add(meow03);
+        sounds.Add(meow04);
+    }
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
