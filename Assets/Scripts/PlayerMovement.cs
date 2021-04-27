@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,16 +23,16 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     public bool isSprinting = false;
 
-    private AudioSource _audioSource;
+    public AudioSource _audioSource;
     public AudioClip meow01;
     public AudioClip meow02;
     public AudioClip meow03;
     public AudioClip meow04;
+    [SerializeField]
     private List<AudioClip> sounds;
 
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
         sounds.Add(meow01);
         sounds.Add(meow02);
         sounds.Add(meow03);
@@ -50,6 +51,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            
+            int index = Random.Range(0, sounds.Count - 1);
+            _audioSource.PlayOneShot(sounds[index]);
         }
 
         if (Input.GetKey(KeyCode.LeftShift))

@@ -2773,10 +2773,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isSprinting: 0
+  _audioSource: {fileID: 1723181726}
   meow01: {fileID: 8300000, guid: 6bf780f5ece010f48b14d2cbe82b05f7, type: 3}
   meow02: {fileID: 8300000, guid: 4b7eba50469c1484daddbae6ec32327e, type: 3}
   meow03: {fileID: 8300000, guid: 1dde1d62ba4752f418344a3cbe22ca00, type: 3}
   meow04: {fileID: 8300000, guid: 81ff8fc4db417134daa6bd189186e81b, type: 3}
+  sounds: []
 --- !u!82 &1723181726
 AudioSource:
   m_ObjectHideFlags: 0
