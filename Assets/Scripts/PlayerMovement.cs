@@ -15,6 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public float sprintSpeed;
     
     private Vector3 velocity;
+
+    private Vector3 crouchHeight = new Vector3(1f, 0.5f, 1);
+    private Vector3 crouchPos;
+    private Vector3 regularHeight = new Vector3(1f, 1f, 1f);
+    private Vector3 regularPos;
     
     public Transform groundCheck;
     
@@ -79,5 +84,11 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        regularPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        crouchPos = new Vector3(transform.position.x, 0.278f, transform.position.z);
+
+        transform.localScale = Input.GetKey(KeyCode.C) ? crouchHeight : regularHeight;
+        transform.position = Input.GetKey(KeyCode.C) ? crouchPos : regularPos;
     }
 }
