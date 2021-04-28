@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         regularPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        crouchPos = new Vector3(transform.position.x, 0.278f, transform.position.z);
+        crouchPos = new Vector3(transform.position.x, transform.position.y - 0.28f, transform.position.z);
 
         transform.localScale = Input.GetKey(KeyCode.C) ? crouchHeight : regularHeight;
         transform.position = Input.GetKey(KeyCode.C) ? crouchPos : regularPos;
