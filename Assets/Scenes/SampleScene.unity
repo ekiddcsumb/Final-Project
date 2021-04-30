@@ -696,6 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cat: {fileID: 1723181722}
+  sounds: {fileID: 2079453096}
 --- !u!54 &304786719
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3060,7 +3061,6 @@ GameObject:
   - component: {fileID: 1723181725}
   - component: {fileID: 1723181726}
   - component: {fileID: 1723181727}
-  - component: {fileID: 1723181728}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -3127,11 +3127,7 @@ MonoBehaviour:
     m_Bits: 8
   isSprinting: 0
   _audioSource: {fileID: 1723181726}
-  meow01: {fileID: 8300000, guid: 6bf780f5ece010f48b14d2cbe82b05f7, type: 3}
-  meow02: {fileID: 8300000, guid: 4b7eba50469c1484daddbae6ec32327e, type: 3}
-  meow03: {fileID: 8300000, guid: 1dde1d62ba4752f418344a3cbe22ca00, type: 3}
-  meow04: {fileID: 8300000, guid: 81ff8fc4db417134daa6bd189186e81b, type: 3}
-  sounds: []
+  sounds: {fileID: 2079453096}
 --- !u!82 &1723181726
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3238,18 +3234,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4e2f444b32dbde4aab77394cdaedea9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1723181728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723181722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f48be7e1ab17e84ca5c5d3323cecbe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1752327556
@@ -3578,3 +3562,54 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 175c48b70a024c3478904cbd8e8be5f1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab7df4388e0265499e7e58faf1d6aed, type: 3}
+--- !u!1 &2079453095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2079453097}
+  - component: {fileID: 2079453096}
+  m_Layer: 0
+  m_Name: Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2079453096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079453095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f48be7e1ab17e84ca5c5d3323cecbe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
+  meow01: {fileID: 8300000, guid: 6bf780f5ece010f48b14d2cbe82b05f7, type: 3}
+  meow02: {fileID: 8300000, guid: 4b7eba50469c1484daddbae6ec32327e, type: 3}
+  meow03: {fileID: 8300000, guid: 1dde1d62ba4752f418344a3cbe22ca00, type: 3}
+  meow04: {fileID: 8300000, guid: 81ff8fc4db417134daa6bd189186e81b, type: 3}
+  meow05: {fileID: 8300000, guid: 2043cf8e7c43be846b407b69434b8bdc, type: 3}
+  meow06: {fileID: 8300000, guid: 31d3bc28e08678c4f960345b1ddee71a, type: 3}
+  meow07: {fileID: 8300000, guid: 2aafd2768d80b674da6f3a1500c453fe, type: 3}
+--- !u!4 &2079453097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079453095}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 59.004543, y: 6.3497605, z: 14.534695}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -6,13 +6,14 @@ using UnityEngine;
 public class Treat : MonoBehaviour
 {
     public GameObject cat;
+    public Sounds sounds;
     void OnTriggerStay(Collider other)
     {
         if (Input.GetButtonDown("Interact"))
         {
-            Debug.Log("E was pressed");
+            cat.GetComponent<AudioSource>().PlayOneShot(sounds.getSounds()[5]);
             Destroy(gameObject);
-            
+            Debug.Log("You ate a treat!");
         }
     }
     

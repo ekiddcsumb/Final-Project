@@ -29,20 +29,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isSprinting = false;
 
     public AudioSource _audioSource;
-    public AudioClip meow01;
-    public AudioClip meow02;
-    public AudioClip meow03;
-    public AudioClip meow04;
-    [SerializeField]
-    private List<AudioClip> sounds;
-
-    private void Awake()
-    {
-        sounds.Add(meow01);
-        sounds.Add(meow02);
-        sounds.Add(meow03);
-        sounds.Add(meow04);
-    }
+    public Sounds sounds;
+    
 
     void Update()
     {
@@ -57,8 +45,14 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             
-            int index = Random.Range(0, sounds.Count - 1);
-            _audioSource.PlayOneShot(sounds[index]);
+            int index = Random.Range(0, sounds.getSounds().Count - 1);
+
+            // this sound is for treats UwU
+            if (index == 5)
+            {
+                index++;
+            }
+            _audioSource.PlayOneShot(sounds.getSounds()[index]);
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
