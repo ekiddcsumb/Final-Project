@@ -14,4 +14,9 @@ public class MoveableObject : MonoBehaviour
             transform.parent = (other.transform == transform.parent) ? null : other.transform ;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        transform.parent = null;
+    }
 }
