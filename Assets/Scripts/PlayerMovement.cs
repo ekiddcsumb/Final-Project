@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     
     private Vector3 velocity;
 
-    private Vector3 crouchHeight = new Vector3(1f, 0.5f, 1);
+    private Vector3 crouchHeight = new Vector3(1f, 0.4f, 1);
     private Vector3 crouchPos;
     private Vector3 regularHeight = new Vector3(1f, 1f, 1f);
     private Vector3 regularPos;
@@ -26,11 +26,11 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     
     private bool isGrounded;
-    public bool isSprinting = false;
+    private bool isSprinting = false;
 
     public AudioSource _audioSource;
     public Sounds sounds;
-    
+
 
     void Update()
     {
@@ -80,9 +80,10 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         regularPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        crouchPos = new Vector3(transform.position.x, transform.position.y - 0.28f, transform.position.z);
+        crouchPos = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
 
         transform.localScale = Input.GetKey(KeyCode.C) ? crouchHeight : regularHeight;
         transform.position = Input.GetKey(KeyCode.C) ? crouchPos : regularPos;
+        controller.radius = Input.GetKey(KeyCode.C) ? .18f : .28f;
     }
 }
