@@ -39,7 +39,6 @@ public class Treat : MonoBehaviour
         {
             isTriggered = true;
             pressEuiText.SetActive(true);
-            Debug.Log(isTriggered);
         }
     }
     // void OnTriggerStay(Collider other)
