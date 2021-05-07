@@ -7,33 +7,39 @@ using UnityEngine.UI;
 public class MoveableObject : MonoBehaviour
 {
     private bool input;
+    private bool isTriggered = false;
 
     public GameObject uiText;
+
+    public Transform pickupDestination;
 
     private void Start()
     {
         uiText.SetActive(false);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-         input = Input.GetButtonDown("Interact");
+        input = Input.GetButtonDown("Interact");
+        
+        if (input && isTriggered)
+         {
+             transform.parent = (pickupDestination == transform.parent) ? null : pickupDestination ;
+         }
     }
-    
-    void OnTriggerStay(Collider other)
+
+    private void OnTriggerEnter(Collider other)
     {
-        uiText.SetActive(true);
-        // TODO: need to figure out pickup bug.
-        // Debug.Log("Box is inside the trigger.");
-        // Debug.Log("This is the collider: " + other.name);
-        if (input)
+        if (other.gameObject.tag == "Player")
         {
-            transform.parent = (other.transform == transform.parent) ? null : other.transform ;
+            isTriggered = true;
+            uiText.SetActive(true);
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
+        isTriggered = false;
         uiText.SetActive(false);
         transform.parent = null;
     }

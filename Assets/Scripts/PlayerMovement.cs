@@ -84,6 +84,6 @@ public class PlayerMovement : MonoBehaviour
 
         transform.localScale = Input.GetKey(KeyCode.C) ? crouchHeight : regularHeight;
         transform.position = Input.GetKey(KeyCode.C) ? crouchPos : regularPos;
-        controller.radius = Input.GetKey(KeyCode.C) ? .18f : .28f;
+        controller.radius = Input.GetKey(KeyCode.C) ? .15f : .28f;
     }
 }

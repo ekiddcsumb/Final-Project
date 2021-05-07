@@ -11,16 +11,20 @@ public class Treat : MonoBehaviour
     public GameObject pressEuiText;
     public GameObject treatUiText;
     
+    private bool input;
+    private bool isTriggered = false;
+    
     private void Start()
     {
         pressEuiText.SetActive(false);
         treatUiText.SetActive(false);
     }
-    void OnTriggerStay(Collider other)
+    
+    private void Update()
     {
-        pressEuiText.SetActive(true);
+        input = Input.GetButtonDown("Interact");
         
-        if (Input.GetButtonDown("Interact"))
+        if (input && isTriggered)
         {
             cat.GetComponent<AudioSource>().PlayOneShot(sounds.getSounds()[5]);
             pressEuiText.SetActive(false);
@@ -28,14 +32,39 @@ public class Treat : MonoBehaviour
             StartCoroutine("Wait");
         }
     }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            isTriggered = true;
+            pressEuiText.SetActive(true);
+            Debug.Log(isTriggered);
+        }
+    }
+    // void OnTriggerStay(Collider other)
+    // {
+    //     Debug.Log("in trigger");
+    //     pressEuiText.SetActive(true);
+    //     
+    //     if (Input.GetButtonDown("Interact"))
+    //     {
+    //         cat.GetComponent<AudioSource>().PlayOneShot(sounds.getSounds()[5]);
+    //         pressEuiText.SetActive(false);
+    //         treatUiText.SetActive(true);
+    //         StartCoroutine("Wait");
+    //     }
+    // }
 
     private void OnTriggerExit(Collider other)
     {
         pressEuiText.SetActive(false);
+        isTriggered = false;
     }
 
     IEnumerator Wait()
     {
+        isTriggered = false;
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<CapsuleCollider>().enabled = false;
         pressEuiText.SetActive(false);
