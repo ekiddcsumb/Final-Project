@@ -21,11 +21,11 @@ public class MoveableObject : MonoBehaviour
     private void Update()
     {
         input = Input.GetButtonDown("Interact");
-        
+
         if (input && isTriggered)
-         {
-             transform.parent = (pickupDestination == transform.parent) ? null : pickupDestination ;
-         }
+        {
+            transform.parent = (pickupDestination == transform.parent) ? null : pickupDestination;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

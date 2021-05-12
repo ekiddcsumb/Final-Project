@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    
+
     public float speed;
     public float gravity = -9.81f;
     public float groundDistance = 0.4f;
@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource _audioSource;
     public Sounds sounds;
-
 
     void Update()
     {

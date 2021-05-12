@@ -5,29 +5,26 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
-    // public float distance;
-    // public LayerMask layermask;
-    //
-    // private bool input;
-    //
-    // void Update()
-    // {
-    //     input = Input.GetButtonDown("Interact");
-    //     
-    //     RaycastHit hitInfo;
-    //     Ray ray = new Ray(transform.position, Vector3.up);
-    //
-    //     if (Physics.Raycast(ray, out hitInfo, distance, layermask))
-    //     {
-    //         if (hitInfo.collider.tag == "Treat" || hitInfo.collider.tag == "MoveableObject")
-    //             Debug.Log("ray hit " + hitInfo.collider.name);
-    //         {
-    //             if (input)
-    //             {
-    //                 hitInfo.collider.transform.parent = (transform == transform.parent) ? 
-    //                     null : transform ;
-    //             }
-    //         }
-    //     }
-    // }
+    public GameObject arm;
+    public GameObject text;
+    
+    private void Start()
+    {
+        arm.gameObject.SetActive(false);
+        text.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            arm.gameObject.SetActive(true);
+            text.SetActive(true);
+        }
+        else
+        {
+            arm.gameObject.SetActive(false);
+            text.SetActive(false);
+        }
+    }
 }
